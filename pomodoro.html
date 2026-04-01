@@ -11,17 +11,16 @@
 
 <body>
 
-  <!-- Global Scripts (Themes & Loader) -->
   <script src="js/loader.js?v=2"></script>
 
-  <!-- LOGIN CHECK -->
+  
   <script>
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
     }
   </script>
 
-  <!-- NAVBAR -->
+  
   <header>
     <nav class="navbar">
       <h1>MyManager</h1>
@@ -42,16 +41,16 @@
     </nav>
   </header>
 
-  <!-- PAGE CONTENT -->
+  
   <main class="container">
 
     <h2>🍅 Focus Zone</h2>
     <p class="muted-text">One session at a time. No pressure. Just focus.</p>
 
-    <!-- POMODORO TIMER CARD -->
+    
     <div class="pomodoro-card">
 
-      <!-- MODE SWITCH -->
+     
       <div class="mode-switch">
         <button onclick="setMode('focus25')" class="active">Focus 25</button>
         <button onclick="setMode('focus30')">Focus 30</button>
@@ -61,10 +60,10 @@
         <button onclick="setMode('long')">Long Break (15)</button>
       </div>
 
-      <!-- BIG TIMER -->
+      
       <h1 id="timer" class="big-timer">25:00</h1>
 
-      <!-- CONTROLS -->
+      
       <div class="pomodoro-controls">
         <button onclick="startTimer()">Start</button>
         <button onclick="pauseTimer()">Pause</button>
@@ -73,7 +72,7 @@
 
     </div>
 
-    <!-- SESSION STATS -->
+    
     <div class="session-stats">
       <article class="card">
         <h3>📊 Session Stats</h3>
@@ -82,7 +81,7 @@
       </article>
     </div>
     <br>
-    <!-- MUSIC -->
+    
     <article class="card">
       <div class="section-header" style="justify-content: space-between;">
         <h3>🎧 Ambient Noise</h3>
@@ -100,7 +99,7 @@
 
     </article>
     <br>
-    <!-- STUDY TECHNIQUES -->
+    
     <article class="card">
       <h3>📚 Study Techniques</h3>
 
@@ -122,7 +121,7 @@
 
   </main>
 
-  <!-- FOOTER -->
+  
   <footer class="footer">
     <p><b>Bahaar Boral | 24BCE1760</b></p>
   </footer>
