@@ -11,17 +11,14 @@
 
 <body>
 
-  <!-- Global Scripts (Themes & Loader) -->
   <script src="js/loader.js"></script>
 
-  <!-- LOGIN CHECK -->
   <script>
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
     }
   </script>
 
-  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
       <h1>MyManager</h1>
@@ -42,7 +39,7 @@
     </nav>
   </header>
 
-  <!-- PAGE CONTENT -->
+
   <main class="container">
 
     <h2>📝 Your Tasks</h2>
@@ -50,7 +47,7 @@
 
     <div class="tasks-grid">
 
-      <!-- TO DO LIST -->
+      
       <article class="card">
         <div class="section-header">
           <h3>📋 To-Do List</h3>
@@ -67,7 +64,7 @@
         <button class="clear-btn" onclick="clearCompleted()">🧹 Clear Completed</button>
       </article>
       <br>
-      <!-- DAILY CHALLENGE -->
+  
       <article class="card challenge-card">
         <h3>🎯 Daily Challenge</h3>
 
@@ -93,7 +90,7 @@
 
   <script src="js/tasks.js"></script>
 
-  <!-- Check daily challenge from pomodoro data -->
+
   <script>
     var pomData = localStorage.getItem("pomodoroSessions");
     if (pomData) {
