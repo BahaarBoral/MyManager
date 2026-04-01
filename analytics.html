@@ -11,17 +11,16 @@
 
 <body>
 
-  <!-- Global Scripts (Themes & Loader) -->
+
   <script src="js/loader.js"></script>
 
-  <!-- LOGIN CHECK -->
+ 
   <script>
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
     }
   </script>
 
-  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
       <h1>MyManager</h1>
@@ -43,7 +42,7 @@
   </header>
 
 
-  <!-- PAGE CONTENT -->
+
   <main class="container">
 
     <h2>📊 Your Habit Analytics</h2>
@@ -51,7 +50,7 @@
       This page shows insights based on your time usage and spending habits.
     </p>
 
-    <!-- DATE FILTER -->
+  
     <div class="filter-bar">
       <label>Filter by: </label>
       <select id="dateFilter">
@@ -62,7 +61,7 @@
       </select>
     </div>
 
-    <!-- SUMMARY ROW -->
+ 
     <div class="analytics-grid">
 
       <article class="analytics-box">
@@ -85,7 +84,7 @@
 
     </div>
     <br>
-    <!-- CHARTS -->
+    
     <div class="charts-row">
 
       <section class="section chart-section">
@@ -134,17 +133,17 @@
       </section>
     </div>
     <br>
-    <!-- DYNAMIC INSIGHTS -->
+    
     <section class="section">
       <h3>🧠 Behaviour Insights</h3>
       <ul id="insightsList" class="insight-list">
-        <!-- JS will populate this -->
+     
       </ul>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+
   <footer class="footer">
     <p><b>Bahaar Boral | 24BCE1760</b></p>
     <p><b>Date: 07-01-2026</b></p>
