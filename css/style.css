@@ -25,9 +25,6 @@ body {
   min-height: 100vh;
 }
 
-/* ==========================================
-   NAVBAR
-   ========================================== */
 
 .navbar {
   display: flex;
@@ -69,17 +66,10 @@ body {
   color: var(--accent);
 }
 
-/* ==========================================
-   LAYOUT
-   ========================================== */
 
 .container {
   padding: 40px 60px;
 }
-
-/* ==========================================
-   CARDS & SECTIONS
-   ========================================== */
 
 .dashboard-grid-expanded {
   display: grid;
@@ -105,7 +95,6 @@ body {
   margin-bottom: 25px;
 }
 
-/* Dashboard New Widgets */
 .streak-card {
   background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
   border-left: 4px solid #f59e0b;
@@ -198,9 +187,6 @@ body {
   font-size: 18px;
 }
 
-/* ==========================================
-   AUTH (Login / Register)
-   ========================================== */
 
 .auth-body {
   margin: 0;
@@ -304,9 +290,6 @@ body {
   font-weight: 600;
 }
 
-/* ==========================================
-   FORMS (General — used on money, time pages)
-   ========================================== */
 
 .card input[type="text"],
 .card input[type="number"],
@@ -362,9 +345,6 @@ body {
   box-shadow: 0 15px 30px rgba(52, 211, 153, 0.35);
 }
 
-/* ==========================================
-   GRIDS — Money, Time, Tasks, Profile, About, Analytics
-   ========================================== */
 
 .money-grid,
 .time-grid,
@@ -395,9 +375,6 @@ body {
   box-shadow: 0 20px 60px rgba(52, 211, 153, 0.15);
 }
 
-/* ==========================================
-   VALIDATION MESSAGE
-   ========================================== */
 
 .validation-message {
   font-size: 13px;
@@ -406,9 +383,6 @@ body {
   min-height: 20px;
 }
 
-/* ==========================================
-   DATA TABLES (Expense history, Time logs)
-   ========================================== */
 
 .table-wrapper {
   overflow-x: auto;
@@ -453,9 +427,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* ==========================================
-   SECTION HEADER (with badge)
-   ========================================== */
 
 .section-header {
   display: flex;
@@ -472,10 +443,6 @@ body {
   font-size: 12px;
   font-weight: 600;
 }
-
-/* ==========================================
-   BUTTONS — Delete, Clear
-   ========================================== */
 
 .delete-btn {
   background: rgba(239, 68, 68, 0.15);
@@ -520,9 +487,6 @@ body {
   box-shadow: 0 15px 30px rgba(239, 68, 68, 0.35) !important;
 }
 
-/* ==========================================
-   CHARTS
-   ========================================== */
 
 .chart-container {
   margin-top: 15px;
@@ -548,10 +512,6 @@ body {
   flex: 1;
   min-width: 300px;
 }
-
-/* ==========================================
-   FILTER BAR
-   ========================================== */
 
 .filter-bar {
   margin-top: 20px;
@@ -583,10 +543,6 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
 }
-
-/* ==========================================
-   TASKS
-   ========================================== */
 
 .todo-list {
   list-style: none;
@@ -647,9 +603,6 @@ body {
   white-space: nowrap;
 }
 
-/* ==========================================
-   CHECKBOX / RADIO GROUPS
-   ========================================== */
 
 .checkbox-group,
 .radio-group {
@@ -676,9 +629,6 @@ body {
   cursor: pointer;
 }
 
-/* ==========================================
-   INSIGHT LIST
-   ========================================== */
 
 .insight-list {
   list-style: none;
@@ -695,9 +645,6 @@ body {
   line-height: 1.6;
 }
 
-/* ==========================================
-   POMODORO
-   ========================================== */
 
 .pomodoro-card {
   text-align: center;
@@ -769,9 +716,6 @@ body {
   margin-top: 25px;
 }
 
-/* ==========================================
-   ABOUT PAGE
-   ========================================== */
 
 .about-card {
   flex: 1;
@@ -790,9 +734,6 @@ body {
   box-shadow: 0 20px 60px rgba(52, 211, 153, 0.15);
 }
 
-/* ==========================================
-   PROFILE PAGE
-   ========================================== */
 
 .profile-pic {
   text-align: center;
@@ -821,19 +762,12 @@ body {
   color: var(--text-secondary);
 }
 
-/* ==========================================
-   CHALLENGE CARD
-   ========================================== */
 
 .challenge-status {
   font-size: 18px;
   font-weight: 700;
   color: #fbbf24;
 }
-
-/* ==========================================
-   PLACEHOLDERS
-   ========================================== */
 
 .graph-placeholder,
 .table-placeholder,
@@ -846,9 +780,6 @@ body {
   margin-top: 15px;
 }
 
-/* ==========================================
-   SCROLLING TICKER
-   ========================================== */
 .ticker-box {
   background: var(--bg-card);
   border-radius: 16px;
@@ -890,9 +821,7 @@ body {
   }
 }
 
-/* ==========================================
-   HOURGLASS CANVAS
-   ========================================== */
+
 .hero-hourglass {
   display: flex;
   justify-content: center;
@@ -907,9 +836,6 @@ body {
   height: auto;
 }
 
-/* ==========================================
-   FOOTER
-   ========================================== */
 
 .footer {
   margin-top: 60px;
@@ -920,9 +846,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
 
 @media (max-width: 768px) {
   .navbar {
@@ -964,9 +887,7 @@ body {
   }
 }
 
-/* ==========================================
-   THEME PICKER
-   ========================================== */
+
 .theme-picker {
   position: relative;
   margin-left: 15px;
@@ -1028,9 +949,6 @@ body {
   background: rgba(52, 211, 153, 0.1);
 }
 
-/* ==========================================
-   PAGE LOADER
-   ========================================== */
 #pageLoader {
   position: fixed;
   top: 0;
@@ -1054,9 +972,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* ==========================================
-   PROFILE THEME SWATCHES
-   ========================================== */
+
 .theme-swatches {
   display: flex;
   gap: 15px;
@@ -1090,11 +1006,11 @@ body {
   box-shadow: 0 0 15px var(--accent);
 }
 
-/* Hardcoded gradients for swatches to represent themes */
+
 .profile-theme-btn[data-theme="dark"] {
   background: linear-gradient(135deg, #0f172a, #1e293b);
   border-color: #34d399;
-  /* initial active border if any */
+
 }
 
 .profile-theme-btn[data-theme="light"] {
@@ -1113,9 +1029,7 @@ body {
   background: linear-gradient(135deg, #fdf2f8, #fce7f3);
 }
 
-/* ==========================================
-   GAMES (WORDLE)
-   ========================================== */
+
 .wordle-container {
   display: flex;
   flex-direction: column;
