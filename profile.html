@@ -11,17 +11,17 @@
 
 <body>
 
-  <!-- Global Scripts (Themes & Loader) -->
+  
   <script src="js/loader.js"></script>
 
-  <!-- LOGIN CHECK -->
+  
   <script>
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
     }
   </script>
 
-  <!-- NAVBAR -->
+  
   <header>
     <nav class="navbar">
       <h1>MyManager</h1>
@@ -42,7 +42,7 @@
     </nav>
   </header>
 
-  <!-- PAGE CONTENT -->
+  
   <main class="container">
 
     <h2>🧠 Your Profile</h2>
@@ -50,7 +50,7 @@
 
     <div class="profile-grid">
 
-      <!-- PROFILE CARD -->
+      
       <article class="card profile-card">
 
         <div class="profile-pic">
@@ -71,7 +71,7 @@
 
       </article>
 
-      <!-- APPEARANCE (THEMES) -->
+      
       <article class="card">
         <h3>✨ Appearance</h3>
         <p class="muted-text">Choose your App Theme</p>
@@ -85,7 +85,7 @@
         </div>
       </article>
 
-      <!-- STATS CARD -->
+      
       <article class="card">
 
         <h3>🔥 Consistency</h3>
@@ -134,7 +134,7 @@
       image.src = URL.createObjectURL(event.target.files[0]);
     }
 
-    // Load saved profile data
+    
     window.addEventListener("DOMContentLoaded", function () {
       var savedName = localStorage.getItem("name");
       var savedGoal = localStorage.getItem("goal");
@@ -144,7 +144,7 @@
       if (savedGoal) document.getElementById("goal").value = savedGoal;
       if (savedWhy) document.getElementById("why").value = savedWhy;
 
-      // Calculate streak from pomodoro sessions
+      
       var pomData = localStorage.getItem("pomodoroSessions");
       if (pomData) {
         var sessions = JSON.parse(pomData);
