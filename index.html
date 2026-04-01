@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js?v=2"></script>
+  <script src="js/themes.js?v=2"></script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html" class="active"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HOURGLASS CANVAS -->
+  <div class="hero-hourglass">
+    <canvas id="hourglassCanvas"></canvas>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <div class="welcome-header">
+      <h2 id="greetingName">Welcome Back 🌱</h2>
+      <p class="muted-text">
+        This dashboard gives you a quick snapshot of your time and money. No judgement — just awareness.
+      </p>
+    </div>
+
+    <!-- SCROLLING TICKER IN A BOX -->
+    <div class="ticker-box">
+      <div class="ticker-wrapper">
+        <div class="ticker-content">
+          <span>✨ You're not here to be perfect. You're here to be better than yesterday.</span>
+          <span>⭐ Small habits compound. Even 30 minutes of focus can change your day.</span>
+          <span>🌱 Consistency is better than intensity. Keep going!</span>
+          <span>🧠 A disciplined mind brings calm to chaos.</span>
+          <span>💡 Awareness is the first step — track your time and money.</span>
+          <!-- Duplicate for infinite scroll -->
+          <span>✨ You're not here to be perfect. You're here to be better than yesterday.</span>
+          <span>⭐ Small habits compound. Even 30 minutes of focus can change your day.</span>
+          <span>🌱 Consistency is better than intensity. Keep going!</span>
+          <span>🧠 A disciplined mind brings calm to chaos.</span>
+          <span>💡 Awareness is the first step — track your time and money.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD WIDGETS -->
+    <div class="dashboard-grid-expanded">
+
+      <!-- Left Column: Core Stats -->
+      <div class="stats-column">
+        <article class="dashboard-card stat-card">
+          <h3>💸 Money Spent</h3>
+          <p class="big-number" id="totalMoney">Rs. 0</p>
+          <p class="muted-text">Tracked from Money Leak</p>
+        </article>
+
+        <article class="dashboard-card stat-card">
+          <h3>⏳ Screen Time</h3>
+          <p class="big-number" id="totalScreenTime">0 hrs</p>
+          <p class="muted-text">Total daily usage</p>
+        </article>
+
+        <article class="dashboard-card stat-card">
+          <h3>🍅 Productive Time</h3>
+          <p class="big-number" id="totalPomodoro">0 hrs</p>
+          <p class="muted-text">From Pomodoro sessions</p>
+        </article>
+      </div>
+
+      <!-- Right Column: Streaks & Tasks -->
+      <div class="action-column">
+        <article class="dashboard-card streak-card">
+          <h3>🔥 Current Streak</h3>
+          <div class="streak-banner">
+            <span class="streak-days">7 Days</span>
+            <span class="streak-text">You're on fire! Keep focusing every day.</span>
+          </div>
+        </article>
+
+        <article class="dashboard-card tasks-preview">
+          <h3>📌 priority tasks</h3>
+          <ul class="mock-task-list">
+            <li><span class="mock-check">🟢</span> Finish Math Assignment</li>
+            <li><span class="mock-check">🟡</span> Read Chapter 4 - Physics</li>
+            <li><span class="mock-check">🟠</span> Review weekly budget</li>
+          </ul>
+          <a href="tasks.html" class="btn btn-secondary"
+            style="display:block; text-align:center; margin-top: 15px;">View All Tasks</a>
+        </article>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+  </footer>
+
+  <script src="js/dashboard.js?v=2"></script>
+  <script src="js/hourglass.js?v=2"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <!-- LOGIN CHECK -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html" class="active"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>📊 Your Habit Analytics</h2>
+    <p>
+      This page shows insights based on your time usage and spending habits.
+    </p>
+
+    <!-- DATE FILTER -->
+    <div class="filter-bar">
+      <label>Filter by: </label>
+      <select id="dateFilter">
+        <option value="all">All Time</option>
+        <option value="today">Today</option>
+        <option value="week">This Week</option>
+        <option value="month">This Month</option>
+      </select>
+    </div>
+
+    <!-- SUMMARY ROW -->
+    <div class="analytics-grid">
+
+      <article class="analytics-box">
+        <h3>Total Money Spent</h3>
+        <p class="big-number" id="analyticsMoney">Rs. 0</p>
+        <p class="muted-text">Based on your expense logs</p>
+      </article>
+
+      <article class="analytics-box">
+        <h3>Total Screen Time</h3>
+        <p class="big-number" id="analyticsTime">0 hrs</p>
+        <p class="muted-text">Includes productive & unproductive time</p>
+      </article>
+
+      <article class="analytics-box">
+        <h3>Productive Time</h3>
+        <p class="big-number" id="analyticsPomodoro">0 hrs</p>
+        <p class="muted-text">From Pomodoro sessions</p>
+      </article>
+
+    </div>
+    <br>
+    <!-- CHARTS -->
+    <div class="charts-row">
+
+      <section class="section chart-section">
+        <h3>💸 Expense Breakdown</h3>
+        <div class="chart-container">
+          <canvas id="expenseChart" width="480" height="300"></canvas>
+        </div>
+      </section>
+
+      <section class="section chart-section">
+        <h3>⏳ Time Distribution</h3>
+        <div class="chart-container">
+          <canvas id="timeChart" width="480" height="300"></canvas>
+        </div>
+      </section>
+
+    </div>
+    <br>
+
+    <div class="charts-row">
+      <section class="section chart-section">
+        <h3>📈 Trend Correlation</h3>
+        <p class="muted-text" style="font-size: 13px;">Screen Time vs. Money Spent</p>
+        <div class="chart-container">
+          <canvas id="correlationChart" width="480" height="300"></canvas>
+        </div>
+      </section>
+
+      <section class="section chart-section">
+        <h3>🕐 Peak Activity Times</h3>
+        <p class="muted-text" style="font-size: 13px;">Time of Day Breakdown</p>
+        <div class="chart-container">
+          <canvas id="timePatternChart" width="480" height="300"></canvas>
+        </div>
+      </section>
+    </div>
+    <br>
+
+    <div class="charts-row">
+      <section class="section chart-section" style="width: 100%;">
+        <h3>🕸️ Productivity Radar</h3>
+        <p class="muted-text" style="font-size: 13px;">Productive vs Unproductive habits across attributes</p>
+        <div class="chart-container">
+          <canvas id="radarChart" width="480" height="300"></canvas>
+        </div>
+      </section>
+    </div>
+    <br>
+    <!-- DYNAMIC INSIGHTS -->
+    <section class="section">
+      <h3>🧠 Behaviour Insights</h3>
+      <ul id="insightsList" class="insight-list">
+        <!-- JS will populate this -->
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+    <p><b>Date: 07-01-2026</b></p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+
+</body>
+
+</html>

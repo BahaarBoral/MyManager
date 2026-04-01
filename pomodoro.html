@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Focus Zone</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js?v=2"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js?v=2"></script>
+
+  <!-- LOGIN CHECK -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html" class="active"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>🍅 Focus Zone</h2>
+    <p class="muted-text">One session at a time. No pressure. Just focus.</p>
+
+    <!-- POMODORO TIMER CARD -->
+    <div class="pomodoro-card">
+
+      <!-- MODE SWITCH -->
+      <div class="mode-switch">
+        <button onclick="setMode('focus25')" class="active">Focus 25</button>
+        <button onclick="setMode('focus30')">Focus 30</button>
+        <button onclick="setMode('focus45')">Focus 45</button>
+        <button onclick="setMode('focus50')">Focus 50</button>
+        <button onclick="setMode('short')">Short Break (5)</button>
+        <button onclick="setMode('long')">Long Break (15)</button>
+      </div>
+
+      <!-- BIG TIMER -->
+      <h1 id="timer" class="big-timer">25:00</h1>
+
+      <!-- CONTROLS -->
+      <div class="pomodoro-controls">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+      </div>
+
+    </div>
+
+    <!-- SESSION STATS -->
+    <div class="session-stats">
+      <article class="card">
+        <h3>📊 Session Stats</h3>
+        <p>Sessions completed today: <span id="sessionCount" class="accent-text">0</span></p>
+        <p>Total focus time: <span id="totalFocusTime" class="accent-text">0 min</span></p>
+      </article>
+    </div>
+    <br>
+    <!-- MUSIC -->
+    <article class="card">
+      <div class="section-header" style="justify-content: space-between;">
+        <h3>🎧 Ambient Noise</h3>
+        <a href="games.html" class="badge" style="text-decoration: none; color: inherit;" id="gamesLink">🎮 Play a
+          Game</a>
+      </div>
+
+      <select onchange="changeMusic(this.value)">
+        <option value="">No sound</option>
+        <option value="lofi">Lo-fi Tones</option>
+        <option value="rain">Rain Sounds</option>
+        <option value="piano">Soft Piano</option>
+      </select>
+      <p class="muted-text" style="font-size: 13px; margin-top: 5px;">(Generated via Web Audio API)</p>
+
+    </article>
+    <br>
+    <!-- STUDY TECHNIQUES -->
+    <article class="card">
+      <h3>📚 Study Techniques</h3>
+
+      <ul>
+        <li>
+          <b>Pomodoro Technique</b> – Study for 25 minutes, take a short break,
+          repeat. Keeps focus high without burnout.
+        </li>
+        <li>
+          <b>Active Recall</b> – Close your notes and try to remember concepts
+          from memory instead of rereading.
+        </li>
+        <li>
+          <b>Blurting</b> – Write everything you remember about a topic,
+          then check notes and fill gaps.
+        </li>
+      </ul>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+  </footer>
+
+  <script src="js/pomodoro.js"></script>
+
+</body>
+
+</html>

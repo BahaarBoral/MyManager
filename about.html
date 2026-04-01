@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | About</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html" class="active"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>🌱 Why MyManager Exists</h2>
+
+    <div class="about-grid">
+
+      <article class="about-card">
+        <h3>🎓 For College Students</h3>
+        <p>
+          College life throws money, freedom, screens and responsibility
+          all at once. Most students aren't taught how to manage this shift.
+        </p>
+      </article>
+
+      <article class="about-card">
+        <h3>💸 Time & Money Awareness</h3>
+        <p>
+          MyManager helps students see where your time and money actually go,
+          especially impulsive spending and endless scrolling.
+        </p>
+      </article>
+
+      <article class="about-card">
+        <h3>🌿 Change Without Pressure</h3>
+        <p>
+          This isn't about guilt or perfection.
+          It's about gentle awareness and better habits over time.
+        </p>
+      </article>
+
+    </div>
+    <br>
+    <section class="section">
+      <h3>📌 Syllabus Concepts Used</h3>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Where Used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>for / while loops</td>
+              <td>money.js, time.js, analytics.js, tasks.js, dashboard.js</td>
+            </tr>
+            <tr>
+              <td>onchange</td>
+              <td>Time page (hours input), Analytics (date filter), Pomodoro (music)</td>
+            </tr>
+            <tr>
+              <td>onclick</td>
+              <td>All buttons — Add Expense, Save Log, Add Task, etc.</td>
+            </tr>
+            <tr>
+              <td>onmouseover / onmouseout</td>
+              <td>Dashboard cards, Analytics cards (JS hover effects)</td>
+            </tr>
+            <tr>
+              <td>Radio buttons</td>
+              <td>Time Sink — Peak usage time</td>
+            </tr>
+            <tr>
+              <td>Checkboxes</td>
+              <td>Time Sink — Activity selection, Tasks — completion toggle</td>
+            </tr>
+            <tr>
+              <td>Dropdowns (select)</td>
+              <td>Money Leak — category/reason, Analytics — date range</td>
+            </tr>
+            <tr>
+              <td>Form validation</td>
+              <td>money.js, time.js — required fields, range checks</td>
+            </tr>
+            <tr>
+              <td>External JS files</td>
+              <td>money.js, time.js, analytics.js, dashboard.js, tasks.js, pomodoro.js</td>
+            </tr>
+            <tr>
+              <td>DOM manipulation</td>
+              <td>All JS files — getElementById, createElement, etc.</td>
+            </tr>
+            <tr>
+              <td>Semantic HTML</td>
+              <td>header, nav, main, section, article, footer — all pages</td>
+            </tr>
+            <tr>
+              <td>CSS box model</td>
+              <td>Margins, padding, borders throughout style.css</td>
+            </tr>
+            <tr>
+              <td>Canvas API</td>
+              <td>analytics.js (pie chart, bar chart), time.js (bar chart)</td>
+            </tr>
+            <tr>
+              <td>localStorage</td>
+              <td>All data persistence — expenses, time logs, tasks, pomodoro, profile</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <br>
+    <section class="section">
+      <h3>🎬 How It Works</h3>
+      <p>
+        MyManager uses <b>localStorage</b> to save your data directly in the browser.
+        No server needed — your data stays private and local. Just open the HTML files
+        and start tracking your habits!
+      </p>
+
+      <div class="video-placeholder">
+        <p>[ Intro video can be added here ]</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+    <p><b>Date: 07-01-2026</b></p>
+  </footer>
+
+</body>
+
+</html>

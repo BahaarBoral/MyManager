@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body class="auth-body">
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <div class="auth-card">
+    <h1>Welcome Back ✨</h1>
+    <p class="auth-subtext">Let's get your time & money back on track.</p>
+
+    <label>Email</label>
+    <input type="email" id="loginEmail" placeholder="you@email.com">
+
+    <label>Password</label>
+    <input type="password" id="loginPassword" placeholder="••••••••">
+
+    <button class="auth-btn" onclick="login()">Log In</button>
+
+    <p class="auth-switch">
+      New here? <a href="register.html">Create an account</a>
+    </p>
+
+    <p id="loginMessage" class="auth-message"></p>
+  </div>
+
+  <script src="js/auth.js"></script>
+
+  <!-- Enter key to login -->
+  <script>
+    document.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        login();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

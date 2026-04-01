@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <!-- LOGIN CHECK -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html" class="active"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>🧠 Your Profile</h2>
+    <p class="muted-text">This space is about you — your goals, your why.</p>
+
+    <div class="profile-grid">
+
+      <!-- PROFILE CARD -->
+      <article class="card profile-card">
+
+        <div class="profile-pic">
+          <img id="preview" src="assets/images/profile.jpg" alt="Profile Picture">
+          <input type="file" accept="image/*" onchange="loadImage(event)">
+        </div>
+
+        <label>Nickname</label>
+        <input type="text" id="name" placeholder="Bahaar">
+
+        <label>Your Goal</label>
+        <input type="text" id="goal" placeholder="Be disciplined & peaceful">
+
+        <label>Your Why</label>
+        <textarea id="why" rows="3" placeholder="I deserve better habits"></textarea>
+
+        <button onclick="saveProfile()">Save Changes</button>
+
+      </article>
+
+      <!-- APPEARANCE (THEMES) -->
+      <article class="card">
+        <h3>✨ Appearance</h3>
+        <p class="muted-text">Choose your App Theme</p>
+
+        <div class="theme-swatches">
+          <button class="profile-theme-btn" data-theme="dark" title="Dark Mode (Default)">🌙</button>
+          <button class="profile-theme-btn" data-theme="light" title="Light Mode">☀️</button>
+          <button class="profile-theme-btn" data-theme="techie" title="Techie Matrix">💻</button>
+          <button class="profile-theme-btn" data-theme="lofi" title="Lofi Chill">🎵</button>
+          <button class="profile-theme-btn" data-theme="pastel" title="Pastel Dreams">🌸</button>
+        </div>
+      </article>
+
+      <!-- STATS CARD -->
+      <article class="card">
+
+        <h3>🔥 Consistency</h3>
+
+        <p><b>Current Streak:</b></p>
+        <p class="big-number" id="streakCount">0 days</p>
+
+        <p class="muted-text">
+          Streaks update based on your daily Pomodoro sessions.
+        </p>
+
+        <hr style="border-color: var(--border-color); margin: 20px 0;">
+
+        <button onclick="goDashboard()">⬅ Back to Dashboard</button>
+        <button class="danger" onclick="logout()">Log Out</button>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+  </footer>
+
+  <script>
+    function goDashboard() {
+      window.location.href = "index.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "login.html";
+    }
+
+    function saveProfile() {
+      localStorage.setItem("name", document.getElementById("name").value);
+      localStorage.setItem("goal", document.getElementById("goal").value);
+      localStorage.setItem("why", document.getElementById("why").value);
+      alert("Profile saved 🌱");
+    }
+
+    function loadImage(event) {
+      const image = document.getElementById("preview");
+      image.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    // Load saved profile data
+    window.addEventListener("DOMContentLoaded", function () {
+      var savedName = localStorage.getItem("name");
+      var savedGoal = localStorage.getItem("goal");
+      var savedWhy = localStorage.getItem("why");
+
+      if (savedName) document.getElementById("name").value = savedName;
+      if (savedGoal) document.getElementById("goal").value = savedGoal;
+      if (savedWhy) document.getElementById("why").value = savedWhy;
+
+      // Calculate streak from pomodoro sessions
+      var pomData = localStorage.getItem("pomodoroSessions");
+      if (pomData) {
+        var sessions = JSON.parse(pomData);
+        var uniqueDates = [];
+
+        for (var i = 0; i < sessions.length; i++) {
+          if (uniqueDates.indexOf(sessions[i].date) === -1) {
+            uniqueDates.push(sessions[i].date);
+          }
+        }
+
+        document.getElementById("streakCount").innerText = uniqueDates.length + " days";
+      }
+    });
+  </script>
+
+</body>
+
+</html>

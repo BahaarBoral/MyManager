@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MyManager | Break Games</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Tabs for Games */
+        .game-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .game-tabs button {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .game-tabs button.active {
+            background: var(--accent);
+            color: #0f172a;
+            border-color: var(--accent);
+        }
+
+        .game-section {
+            display: none;
+        }
+
+        .game-section.active {
+            display: block;
+        }
+    </style>
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+    <!-- Global Scripts (Themes & Loader) -->
+      <script src="js/loader.js"></script>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h1>MyManager</h1>
+            <div class="nav-links">
+                <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+                <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+                <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+                <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+                <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+                <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+                <a href="games.html" class="active"><i class="fa fa-gamepad"></i> Games 🎮</a>
+            </div>
+            <div class="profile">
+                <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="container">
+        <h2 style="text-align: center;">🎮 Break Games</h2>
+        <p class="muted-text" style="text-align: center;">Give your brain a different kind of exercise during your short
+            breaks.</p>
+        <br>
+
+        <div class="game-tabs">
+            <button onclick="switchTab('wordle')" class="active" id="tab-wordle">Wordle Clone</button>
+            <button onclick="switchTab('teaser')" id="tab-teaser">Brain Teasers</button>
+        </div>
+
+        <!-- WORDLE -->
+        <div id="wordle" class="game-section active">
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <div class="section-header" style="justify-content: space-between;">
+                    <h3>Wordle (5 Letters)</h3>
+                    <button onclick="newWordleGame()"
+                        style="padding: 6px 12px; border-radius: 6px; border: none; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer;">New
+                        Game</button>
+                </div>
+                <div class="wordle-container">
+                    <div id="wordleMessage" class="wordle-message"></div>
+                    <div id="wordleGrid" class="wordle-grid"></div>
+                    <div id="wordleKeyboard" class="wordle-keyboard"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRAIN TEASERS -->
+        <div id="teaser" class="game-section">
+            <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center; padding: 40px 20px;">
+                <h3>🧠 Random Riddle</h3>
+                <br>
+                <p id="teaserQuestion" style="font-size: 18px; line-height: 1.5; min-height: 80px;"></p>
+                <br>
+                <button id="revealBtn" onclick="revealAnswer()"
+                    style="padding: 10px 20px; border-radius: 8px; border: 1px solid var(--accent); background: transparent; color: var(--accent); font-weight: 600; cursor: pointer; margin-bottom: 20px; transition: 0.2s;">💡
+                    Reveal Answer</button>
+
+                <div style="min-height: 60px;">
+                    <h2 id="teaserAnswer" style="color: var(--accent); display: none;"></h2>
+                </div>
+                <br>
+                <button onclick="showRandomTeaser()"
+                    style="padding: 12px 24px; border-radius: 8px; border: none; background: var(--accent); color: #0f172a; font-weight: 600; cursor: pointer;">Next
+                    Puzzle ➡️</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.game-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.game-tabs button').forEach(el => el.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+    </script>
+    <script src="js/wordle.js"></script>
+    <script src="js/brainteaser.js"></script>
+
+</body>
+
+</html>

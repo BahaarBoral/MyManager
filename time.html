@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Time Sink</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <!-- LOGIN CHECK -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html" class="active"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>⏳ Time Sink</h2>
+    <p class="muted-text">
+      Awareness first. No judgement. Just honesty.
+    </p>
+
+    <div class="time-grid">
+
+      <!-- LOG TIME -->
+      <article class="card">
+        <h3>📱 Log Screen Time</h3>
+
+        <label>Total Screen Time (hours)</label>
+        <input type="number" id="screenHours" step="0.1" placeholder="Eg: 4.5">
+
+        <label>Mostly spent on</label>
+        <div class="checkbox-group" id="activityCheckboxes">
+          <label><input type="checkbox" value="Studying"> Studying</label>
+          <label><input type="checkbox" value="Social Media"> Social Media</label>
+          <label><input type="checkbox" value="Entertainment"> Entertainment</label>
+          <label><input type="checkbox" value="Shopping"> Shopping</label>
+        </div>
+
+        <label>Peak Usage Time</label>
+        <div class="radio-group">
+          <label><input type="radio" name="peak" value="Morning"> Morning</label>
+          <label><input type="radio" name="peak" value="Afternoon"> Afternoon</label>
+          <label><input type="radio" name="peak" value="Night"> Night</label>
+        </div>
+
+        <p id="timeMessage" class="validation-message"></p>
+
+        <button id="saveTimeBtn">Save Log</button>
+
+        <p class="muted-text">
+          Data is saved locally and used for analytics.
+        </p>
+      </article>
+      <br>
+      <!-- DYNAMIC INSIGHTS -->
+      <article class="card">
+        <h3>🧠 Gentle Insight</h3>
+
+        <p id="insightText">Enter your screen time to see a personalized insight.</p>
+
+        <ul class="insight-list">
+          <li>If screen time &lt; 1 hour → <b>Proud of you 💜</b></li>
+          <li>If screen time &gt; 3 hours → <b>Uh-oh 😬 awareness moment</b></li>
+          <li>Late night usage affects focus & spending</li>
+        </ul>
+      </article>
+
+    </div>
+    <br>
+    <!-- TIME LOG HISTORY -->
+    <section class="section">
+      <h3>📋 Screen Time History</h3>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Hours</th>
+              <th>Activities</th>
+              <th>Peak Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="timeTableBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <br>
+    <!-- TIME CHART -->
+    <section class="section">
+      <h3>📊 Time Breakdown</h3>
+      <div class="chart-container">
+        <canvas id="timeChart" width="500" height="280"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+  </footer>
+
+  <script src="js/time.js"></script>
+
+</body>
+
+</html>

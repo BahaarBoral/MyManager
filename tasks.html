@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Tasks</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <!-- LOGIN CHECK -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html" class="active"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>📝 Your Tasks</h2>
+    <p class="muted-text">Small steps. Tick them off. Feel lighter.</p>
+
+    <div class="tasks-grid">
+
+      <!-- TO DO LIST -->
+      <article class="card">
+        <div class="section-header">
+          <h3>📋 To-Do List</h3>
+          <span id="taskCount" class="badge">0/0 done</span>
+        </div>
+
+        <div class="task-input-row">
+          <input type="text" id="taskInput" placeholder="Add a new task...">
+          <button id="addTaskBtn">Add Task</button>
+        </div>
+
+        <ul id="taskList" class="todo-list"></ul>
+
+        <button class="clear-btn" onclick="clearCompleted()">🧹 Clear Completed</button>
+      </article>
+      <br>
+      <!-- DAILY CHALLENGE -->
+      <article class="card challenge-card">
+        <h3>🎯 Daily Challenge</h3>
+
+        <p><b>Challenge:</b></p>
+        <p>Complete <b>2 hours</b> of focused Pomodoro today</p>
+
+        <p><b>Status:</b></p>
+        <p class="challenge-status" id="challengeStatus">⏳ In Progress</p>
+
+        <p class="muted-text">
+          This challenge will be automatically completed
+          once you finish the required Pomodoro sessions.
+        </p>
+      </article>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+  </footer>
+
+  <script src="js/tasks.js"></script>
+
+  <!-- Check daily challenge from pomodoro data -->
+  <script>
+    var pomData = localStorage.getItem("pomodoroSessions");
+    if (pomData) {
+      var sessions = JSON.parse(pomData);
+      var todayMin = 0;
+      var today = new Date().toLocaleDateString("en-IN");
+      for (var i = 0; i < sessions.length; i++) {
+        if (sessions[i].date === today) {
+          todayMin += sessions[i].minutes;
+        }
+      }
+      if (todayMin >= 120) {
+        document.getElementById("challengeStatus").innerText = "✅ Completed! 🎉";
+        document.getElementById("challengeStatus").style.color = "#34d399";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

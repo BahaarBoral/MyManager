@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyManager | Money Leak</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/themes.js"></script>
+</head>
+
+<body>
+
+  <!-- Global Scripts (Themes & Loader) -->
+  <script src="js/loader.js"></script>
+
+  <!-- LOGIN CHECK -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1>MyManager</h1>
+
+      <div class="nav-links">
+        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+        <a href="money.html" class="active"><i class="fa fa-money"></i> Money Leak 💸</a>
+        <a href="time.html"><i class="fa fa-clock-o"></i> Time Sink ⏳</a>
+        <a href="tasks.html"><i class="fa fa-check-square-o"></i> Tasks 🎯</a>
+        <a href="pomodoro.html"><i class="fa fa-hourglass-half"></i> Pomodoro 🍅</a>
+        <a href="analytics.html"><i class="fa fa-bar-chart"></i> Analytics 📊</a>
+        <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      </div>
+
+      <div class="profile">
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- PAGE CONTENT -->
+  <main class="container">
+
+    <h2>💸 Money Leak</h2>
+    <p>Where did your money quietly disappear?</p>
+
+    <div class="money-grid">
+
+      <!-- ADD EXPENSE -->
+      <article class="card" style="flex: 2;">
+
+        <h3>Add New Expense</h3>
+
+        <form id="expenseForm">
+          <label>Amount (Rs.)</label><br>
+          <input type="number" id="expenseAmount" placeholder="Eg: 250" required><br><br>
+
+          <label>Category</label><br>
+          <select id="expenseCategory">
+            <option>🍔 Food</option>
+            <option>👗 Shopping</option>
+            <option>🚕 Transport</option>
+            <option>🎮 Fun</option>
+          </select><br><br>
+
+          <label>Why though?</label><br>
+          <select id="expenseReason">
+            <option>Bored</option>
+            <option>Stressed</option>
+            <option>Actually needed</option>
+          </select><br><br>
+
+          <p id="expenseMessage" class="validation-message"></p>
+
+          <button type="submit">Add Expense</button>
+        </form>
+      </article>
+
+      <!-- INSIGHT -->
+      <article class="card" style="flex: 1;">
+
+        <h3>🧠 Spending Insight</h3>
+        <p>
+          Impulse spending often happens when bored or stressed.
+          Awareness is the first step to control.
+        </p>
+      </article>
+
+    </div>
+    <br>
+    <!-- EXPENSE HISTORY -->
+    <section class="section">
+      <div class="section-header">
+        <h3>📋 Expense History</h3>
+        <span id="expenseCount" class="badge">0 entries</span>
+      </div>
+
+      <p class="total-display">Total Spent: <span id="expenseTotal" class="big-number" style="font-size: 22px;">Rs.
+          0</span></p>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Reason</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="expenseTableBody">
+          </tbody>
+        </table>
+      </div>
+
+      <button class="clear-btn" onclick="clearAllExpenses()">🗑 Clear All</button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p><b>Bahaar Boral | 24BCE1760</b></p>
+  </footer>
+
+  <script src="js/money.js"></script>
+
+</body>
+
+</html>
